@@ -56,7 +56,6 @@
   if (observer && !reduced.matches) {
     steps.classList.add('process-waiting');
     observer.observe(steps);
-    reveal('.steps li', 'up', 5);
   }
   document.addEventListener('focusin', function (event) {
     var element = event.target.closest('.reveal-pending');
@@ -86,29 +85,40 @@
     counter.text.textContent = counter.original;
     counter.done = true;
   }
-  function count(counter) {
+  function count(counter, delay) {
     if (counter.done) return;
     if (reduced.matches) { finishCounter(counter); return; }
     counter.done = true;
-    var start;
-    function frame(time) {
-      if (start === undefined) start = time;
-      var progress = Math.min((time - start) / 1300, 1);
-      counter.text.textContent = counter.spec.format(counter.spec.value * (1 - Math.pow(1 - progress, 3)));
-      if (progress < 1) counter.frame = requestAnimationFrame(frame);
-      else finishCounter(counter);
-    }
-    counter.frame = requestAnimationFrame(frame);
+    window.setTimeout(function () {
+      var start;
+      function frame(time) {
+        if (start === undefined) start = time;
+        var progress = Math.min((time - start) / 1300, 1);
+        counter.text.textContent = counter.spec.format(counter.spec.value * (1 - Math.pow(1 - progress, 3)));
+        if (progress < 1) counter.frame = requestAnimationFrame(frame);
+        else finishCounter(counter);
+      }
+      counter.frame = requestAnimationFrame(frame);
+    }, delay || 0);
   }
-  if ('IntersectionObserver' in window) {
+  var figuresSection = document.querySelector('.figures');
+  var countersStarted = false;
+  function startCounters() {
+    if (countersStarted) return;
+    countersStarted = true;
+    counters.forEach(function (counter, index) { count(counter, index * 110); });
+  }
+  if (figuresSection && 'IntersectionObserver' in window) {
     var countObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        counters.forEach(function (counter) { if (counter.element === entry.target) count(counter); });
+        startCounters();
         countObserver.unobserve(entry.target);
       });
-    }, { threshold: 0.6 });
-    counters.forEach(function (counter) { countObserver.observe(counter.element); });
+    }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
+    countObserver.observe(figuresSection);
+  } else if (counters.length) {
+    startCounters();
   }
 
   document.querySelectorAll('.node').forEach(function (node) {

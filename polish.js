@@ -4,38 +4,48 @@
   var steps = document.querySelector('.steps');
   var process = document.getElementById('proceso');
   if (steps && process) {
-    var spark = document.createElement('span');
-    spark.className = 'process-spark';
-    spark.setAttribute('aria-hidden','true');
-    steps.appendChild(spark);
     var stepItems = Array.prototype.slice.call(steps.querySelectorAll('li'));
-    function updateProcess(){
-      if (reduced.matches) {
-        steps.style.setProperty('--process-progress','1');
-        stepItems.forEach(function(item){ item.classList.add('is-powered'); });
-        return;
-      }
-      var rect = process.getBoundingClientRect();
-      var vh = window.innerHeight || document.documentElement.clientHeight;
-      var start = vh * 0.72;
-      var end = -rect.height * 0.15;
-      var progress = (start - rect.top) / (start - end);
-      progress = Math.max(0, Math.min(1, progress));
+    var processFrame = 0;
+    var processStarted = false;
+    var processObserver;
+    function paintProcess(progress){
       steps.style.setProperty('--process-progress', progress.toFixed(3));
       stepItems.forEach(function(item,index){
         var threshold = index / Math.max(1, stepItems.length - 1);
-        item.classList.toggle('is-powered', progress + 0.035 >= threshold);
+        item.classList.toggle('is-powered', progress >= threshold);
       });
     }
-    var scheduled = false;
-    function requestUpdate(){
-      if (scheduled) return;
-      scheduled = true;
-      requestAnimationFrame(function(){ scheduled=false; updateProcess(); });
+    function finishProcess(){
+      processStarted = true;
+      cancelAnimationFrame(processFrame);
+      if (processObserver) processObserver.disconnect();
+      paintProcess(1);
     }
-    window.addEventListener('scroll',requestUpdate,{passive:true});
-    window.addEventListener('resize',requestUpdate);
-    updateProcess();
+    function startProcess(){
+      if (processStarted) return;
+      processStarted = true;
+      if (processObserver) processObserver.disconnect();
+      var startedAt;
+      function frame(now){
+        if (startedAt === undefined) startedAt = now;
+        var progress = Math.min((now - startedAt) / 1800, 1);
+        paintProcess(progress);
+        if (progress < 1) processFrame = requestAnimationFrame(frame);
+      }
+      processFrame = requestAnimationFrame(frame);
+    }
+    if (reduced.matches || !('IntersectionObserver' in window)) {
+      finishProcess();
+    } else {
+      processObserver = new IntersectionObserver(function(entries){
+        if (entries.some(function(entry){ return entry.isIntersecting; })) startProcess();
+      }, { threshold: 0.05 });
+      processObserver.observe(steps);
+    }
+    reduced.addEventListener('change',function(){ if (reduced.matches) finishProcess(); });
+    document.addEventListener('visibilitychange',function(){
+      if (document.hidden && processStarted) finishProcess();
+    });
   }
 
   var logoCards = document.querySelectorAll('.logo-wall li');

@@ -50,6 +50,7 @@
 #proceso .wrap::after{right:2%;bottom:8%;width:150px;height:70px;border-right:1px solid rgba(255,193,7,.3);border-bottom:1px solid rgba(255,193,7,.3);border-radius:0 0 18px 0}
 #proceso .eyebrow{color:#53766c!important}
 #proceso h2{color:#124f43!important;text-shadow:none!important;max-width:none}
+#proceso .process-intro{margin-top:18px;color:var(--process-muted);max-width:60ch}
 #proceso .steps{--process-progress:0;margin-top:56px!important;position:relative}
 #proceso .steps::before{background:#d7e5de!important;box-shadow:none!important}
 #proceso .steps::after{background:linear-gradient(90deg,#ffc107,#ffd95d)!important;box-shadow:0 0 14px rgba(255,193,7,.3)}
