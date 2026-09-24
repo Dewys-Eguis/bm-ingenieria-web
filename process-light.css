@@ -1,0 +1,75 @@
+/* V9: contraste visual entre proceso y tecnología */
+#proceso{
+  --process-dark:#124f43;
+  --process-muted:#5e756c;
+  --process-line:#d7e6de;
+  --process-accent:#ffc107;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 12% 18%,rgba(255,193,7,.12),transparent 22%),
+    radial-gradient(circle at 86% 72%,rgba(14,112,102,.08),transparent 28%),
+    linear-gradient(180deg,#fbfdfb 0%,#f2f7f4 100%)!important;
+  color:var(--process-dark)!important;
+  padding:clamp(78px,8vw,112px) 0!important;
+  border-top:1px solid #e0ebe5;
+  border-bottom:1px solid #dce8e1;
+}
+#proceso::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  opacity:.66;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 8% 24%,rgba(8,89,89,.16) 0 1.5px,transparent 2.4px),
+    radial-gradient(circle at 28% 64%,rgba(8,89,89,.09) 0 1.2px,transparent 2px),
+    radial-gradient(circle at 58% 30%,rgba(255,193,7,.22) 0 1.5px,transparent 2.4px),
+    radial-gradient(circle at 82% 55%,rgba(8,89,89,.12) 0 1.2px,transparent 2.2px),
+    linear-gradient(rgba(8,89,89,.032) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(8,89,89,.032) 1px,transparent 1px);
+  background-size:auto,auto,auto,auto,52px 52px,52px 52px;
+}
+#proceso::after{
+  content:"";
+  position:absolute;
+  right:4%;
+  top:15%;
+  width:min(360px,32vw);
+  aspect-ratio:1;
+  border-radius:50%;
+  border:1px solid rgba(8,89,89,.08);
+  box-shadow:0 0 0 42px rgba(8,89,89,.025),0 0 0 84px rgba(8,89,89,.014);
+  z-index:-1;
+}
+#proceso .wrap{position:relative}
+#proceso .wrap::before,#proceso .wrap::after{content:"";position:absolute;pointer-events:none;opacity:.65}
+#proceso .wrap::before{left:2%;top:22%;width:170px;height:90px;border-top:1px solid rgba(8,89,89,.16);border-left:1px solid rgba(8,89,89,.16);border-radius:18px 0 0 0}
+#proceso .wrap::after{right:2%;bottom:8%;width:150px;height:70px;border-right:1px solid rgba(255,193,7,.3);border-bottom:1px solid rgba(255,193,7,.3);border-radius:0 0 18px 0}
+#proceso .eyebrow{color:#53766c!important}
+#proceso h2{color:#124f43!important;text-shadow:none!important;max-width:none}
+#proceso .steps{--process-progress:0;margin-top:56px!important;position:relative}
+#proceso .steps::before{background:#d7e5de!important;box-shadow:none!important}
+#proceso .steps::after{background:linear-gradient(90deg,#ffc107,#ffd95d)!important;box-shadow:0 0 14px rgba(255,193,7,.3)}
+#proceso .steps li{min-height:190px!important}
+#proceso .steps li::after{opacity:0!important}
+#proceso .steps li::before{
+  background:#ffffff!important;
+  color:#0e6257!important;
+  border:1px solid #bed3c9!important;
+  box-shadow:0 0 0 8px #f4f8f5,0 10px 24px rgba(12,84,72,.08)!important;
+}
+#proceso .steps li.is-powered::before,#proceso .steps li:hover::before{
+  background:#ffc107!important;
+  color:#153d35!important;
+  border-color:#ffc107!important;
+  box-shadow:0 0 0 8px rgba(255,193,7,.12),0 14px 30px rgba(152,116,0,.14)!important;
+}
+#proceso .steps h3{color:#124f43!important;margin-top:28px!important}
+#proceso .steps p{color:#61766e!important;max-width:25ch}
+#proceso .steps li:hover{transform:translateY(-5px)}
+#proceso .process-spark{background:#ffc107!important;box-shadow:0 0 0 6px rgba(255,193,7,.12),0 0 24px rgba(255,193,7,.45)!important}
+@media(max-width:900px){#proceso{padding:68px 0 78px!important}#proceso::after{width:280px;right:-100px;top:16%}#proceso .steps{margin-top:42px!important}#proceso .steps li{min-height:145px!important}#proceso .steps p{max-width:38ch}}
+@media(max-width:600px){#proceso .wrap::before,#proceso .wrap::after{display:none}#proceso::after{display:none}}

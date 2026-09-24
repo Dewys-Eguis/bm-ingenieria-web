@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BM Ingeniería y Energía S.A.S. | Ingeniería eléctrica, solar y conexión a red</title>
+<meta name="description" content="Diseñamos, tramitamos, instalamos y conectamos sistemas solares y eléctricos para hogares, comercios e industria en Colombia y Centroamérica. Estudios de conexión, incentivos tributarios Ley 1715 y automatización industrial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Exo+2:ital,wght@0,600;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#085959; --amarillo:#FFC107;
+  --bg:#F3F7F6; --surface:#FFFFFF; --text:#10302F; --muted:#4D6665; --rule:#CFDEDC;
+  --brand:var(--verde); --accent:var(--amarillo); --on-accent:#1C1400;
+  --hero-bg:var(--verde); --hero-text:#F2FAF9; --hero-muted:#B9D6D4; --hero-rule:#1C6A6A;
+  --font:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --display:"Exo 2", "Archivo", Arial, sans-serif;
+  --maxw:1180px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A2524; --surface:#0F3231; --text:#E5F0EF; --muted:#9BB8B6; --rule:#1F4A48;
+    --brand:#6CCBC6; --hero-bg:#064544; --hero-rule:#16605F;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A2524; --surface:#0F3231; --text:#E5F0EF; --muted:#9BB8B6; --rule:#1F4A48;
+  --brand:#6CCBC6; --hero-bg:#064544; --hero-rule:#16605F;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth; scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0; background:var(--bg); color:var(--text); font-family:var(--font); font-size:1.0625rem; line-height:1.6; font-stretch:100%; -webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent); outline-offset:3px; border-radius:4px}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 clamp(18px,4vw,40px)}
+h1,h2,h3{font-family:var(--display); line-height:1.08; letter-spacing:-0.01em; margin:0}
+h2{font-size:clamp(1.8rem,4vw,2.8rem); font-weight:800; max-width:20ch}
+h3{font-size:1.25rem; font-weight:700; font-stretch:110%}
+p{margin:0}
+.lede{color:var(--muted); max-width:60ch; font-size:1.125rem}
+section{padding:clamp(64px,9vw,112px) 0}
+.btn{display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; font-weight:700; font-size:1rem; text-decoration:none; border:2px solid transparent; cursor:pointer; font-family:inherit}
+.btn-sol{background:var(--accent); color:var(--on-accent)}
+.btn-sol:hover{filter:brightness(1.06)}
+.btn-line{border-color:currentColor; background:transparent; color:inherit}
+.btn svg{width:20px; height:20px; flex:none}
+
+/* Header */
+header.top{position:sticky; top:0; z-index:20; background:var(--hero-bg); color:var(--hero-text); border-bottom:1px solid var(--hero-rule)}
+header.top::before{content:""; position:absolute; left:0; right:0; bottom:100%; height:env(safe-area-inset-top,0px); background:var(--hero-bg)}
+.nav{display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:68px}
+.brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+.brand img{display:block; height:48px; width:auto}
+.brand-name{font-weight:800; font-stretch:112%; line-height:1.05; font-size:1rem}
+.brand-name span{display:block; font-weight:400; font-stretch:100%; font-size:.8rem; color:var(--hero-muted)}
+.nav ul{display:flex; gap:26px; list-style:none; margin:0; padding:0}
+.nav ul a{text-decoration:none; font-weight:500; color:var(--hero-muted)}
+.nav ul a:hover{color:var(--hero-text)}
+.nav .btn{padding:10px 18px; font-size:.95rem}
+@media (max-width:860px){ .nav ul{display:none} }
+@media (max-width:420px){ .nav .btn .long{display:none} }
+
+/* Hero */
+.hero{background:var(--hero-bg); color:var(--hero-text); padding:clamp(48px,8vw,96px) 0 clamp(40px,6vw,72px); position:relative; overflow:hidden;
+  background-image:linear-gradient(var(--hero-rule) 1px, transparent 1px), linear-gradient(90deg, var(--hero-rule) 1px, transparent 1px);
+  background-size:48px 48px; background-position:-1px -1px}
+.hero::after{content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 70% 30%, transparent 0, var(--hero-bg) 70%); pointer-events:none}
+.hero .wrap{position:relative; z-index:1}
+.hero h1{font-size:clamp(2.3rem,5.6vw,4.6rem); font-weight:900; font-style:italic; max-width:15ch; line-height:1.02}
+.hero .lede{color:var(--hero-muted); margin-top:22px; font-size:clamp(1.05rem,1.6vw,1.25rem)}
+.hero-grid{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:40px; align-items:center}
+.hero-iso{width:clamp(200px,24vw,320px); height:auto; filter:drop-shadow(0 20px 40px rgba(0,0,0,.25))}
+@media (max-width:760px){ .hero-grid{grid-template-columns:1fr} .hero-iso{display:none} }
+.hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:32px}
+.hero-cta .btn-line{color:var(--hero-text)}
+
+/* Unifilar */
+.sld{margin-top:clamp(48px,7vw,80px); border:1px solid var(--hero-rule); border-radius:18px; padding:clamp(18px,3vw,32px); background:rgba(3,48,48,.55); backdrop-filter:blur(2px)}
+.sld-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:22px}
+.sld-head p{color:var(--hero-muted); font-size:.95rem}
+.sld-head strong{font-stretch:112%; font-size:1.05rem}
+.chain{display:flex; align-items:stretch; list-style:none; margin:0; padding:0}
+.chain li{display:flex; align-items:center; flex:1 1 0; min-width:0}
+.chain li:last-child{flex:0 0 auto}
+.node{appearance:none; background:transparent; border:1.5px solid var(--hero-rule); color:var(--hero-text); border-radius:14px; padding:14px 10px 12px; width:118px; flex:none; display:flex; flex-direction:column; align-items:center; gap:8px; cursor:pointer; font:inherit; transition:border-color .2s, background-color .2s}
+.node svg{width:46px; height:46px; stroke:currentColor; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round}
+.node span{font-size:.82rem; line-height:1.2; font-weight:600; text-align:center}
+.node:hover{border-color:var(--hero-muted)}
+.node[aria-pressed="true"]{border-color:var(--accent); background:rgba(255,193,7,.12)}
+.node[aria-pressed="true"] svg{stroke:var(--accent)}
+.wire{flex:1; height:2px; min-width:14px; margin:0 6px; background:repeating-linear-gradient(90deg, var(--accent) 0 10px, transparent 10px 18px); background-size:18px 2px; animation:flow 1.1s linear infinite; opacity:.85}
+@keyframes flow{to{background-position:18px 0}}
+@media (prefers-reduced-motion: reduce){ .wire{animation:none} }
+.sld-detail{margin-top:22px; padding-top:20px; border-top:1px dashed var(--hero-rule); display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px 28px; align-items:end}
+.sld-detail h3{color:var(--accent)}
+.sld-detail p{color:var(--hero-muted); margin-top:6px; max-width:62ch}
+.sld-detail a{color:var(--hero-text); font-weight:600; white-space:nowrap}
+@media (max-width:760px){
+  .chain{flex-direction:column; align-items:stretch}
+  .chain li{flex-direction:column; align-items:stretch}
+  .node{width:100%; flex-direction:row; justify-content:flex-start; gap:14px; padding:10px 14px}
+  .node svg{width:36px; height:36px}
+  .node span{text-align:left; font-size:.95rem}
+  .wire{width:2px; height:20px; min-width:0; margin:4px 0 4px 31px; background:repeating-linear-gradient(180deg, var(--accent) 0 8px, transparent 8px 14px); background-size:2px 14px; animation-name:flowv}
+  @keyframes flowv{to{background-position:0 14px}}
+  .sld-detail{grid-template-columns:1fr}
+}
+
+/* Cifras */
+.figures{background:var(--hero-bg); color:var(--hero-text); padding:0 0 clamp(48px,6vw,72px)}
+.figures dl{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); margin:0; border-top:1px solid var(--hero-rule)}
+.figures div{padding:22px 18px 0 0}
+.figures div + div{padding-left:18px; border-left:1px solid var(--hero-rule)}
+.figures dt{font-family:var(--display); font-style:italic; font-size:clamp(1.6rem,3.2vw,2.4rem); font-weight:800; line-height:1.1}
+.figures dd{margin:6px 0 0; color:var(--hero-muted); font-size:.95rem; line-height:1.4}
+@media (max-width:760px){
+  .figures dl{grid-template-columns:1fr 1fr}
+  .figures div:nth-child(odd){border-left:0; padding-left:0}
+}
+
+/* Nosotros */
+.about{padding:clamp(56px,7vw,88px) 0; background:var(--surface); border-bottom:1px solid var(--rule)}
+.about-grid{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:56px; align-items:center}
+.about-logo{width:100%; max-width:340px; height:auto}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .about-logo{content:url(assets/marca/logo-bm-blanco.webp)} }
+:root[data-theme="dark"] .about-logo{content:url(assets/marca/logo-bm-blanco.webp)}
+@media (max-width:760px){ .about-grid{grid-template-columns:1fr; gap:28px} .about-logo{max-width:240px} }
+
+/* Servicios */
+.services-head{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:24px 60px; align-items:end; margin-bottom:44px}
+@media (max-width:860px){ .services-head{grid-template-columns:1fr} }
+.svc{border-top:1px solid var(--rule)}
+.svc:last-of-type{border-bottom:1px solid var(--rule)}
+.svc summary{list-style:none; cursor:pointer; display:grid; grid-template-columns:minmax(180px,.9fr) minmax(0,1.4fr) 36px; gap:12px 32px; align-items:center; padding:24px 0}
+.svc summary::-webkit-details-marker{display:none}
+.svc summary h3{font-size:clamp(1.15rem,2vw,1.45rem)}
+.svc summary p{color:var(--muted)}
+.svc .plus{width:36px; height:36px; border:1.5px solid var(--rule); border-radius:50%; display:grid; place-items:center; transition:transform .25s, background-color .2s}
+.svc .plus svg{width:14px; height:14px; stroke:var(--text); stroke-width:2}
+.svc[open] .plus{transform:rotate(45deg); background:var(--accent); border-color:var(--accent)}
+.svc[open] .plus svg{stroke:var(--on-accent)}
+.svc summary:hover h3{color:var(--brand)}
+.svc-body{display:grid; grid-template-columns:minmax(180px,.9fr) minmax(0,1.4fr) 36px; gap:32px; padding:0 0 32px}
+.svc-body ul{margin:0; padding:0; list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:10px 28px}
+.svc-body li{padding-left:18px; position:relative; line-height:1.45}
+.svc-body li::before{content:""; position:absolute; left:0; top:.6em; width:8px; height:2px; background:var(--accent)}
+.svc-body .who{color:var(--muted); font-size:.95rem}
+.svc-body .who a{display:inline-block; margin-top:14px; font-weight:700; color:var(--brand)}
+@media (max-width:760px){
+  .svc summary{grid-template-columns:minmax(0,1fr) 36px}
+  .svc summary p{grid-column:1; grid-row:2}
+  .svc summary .plus{grid-column:2; grid-row:1 / span 2}
+  .svc-body{grid-template-columns:1fr; gap:18px}
+  .svc-body ul{grid-template-columns:1fr}
+}
+
+/* Segmentos */
+.segments{background:var(--surface); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+.seg-grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:44px; border-left:1px solid var(--rule)}
+.seg{padding:6px 24px 8px; border-right:1px solid var(--rule)}
+.seg h3{margin-bottom:10px}
+.seg p{color:var(--muted); font-size:.98rem}
+.seg .tag{display:inline-block; margin-top:16px; font-size:.85rem; font-weight:600; color:var(--brand)}
+@media (max-width:900px){ .seg-grid{grid-template-columns:1fr 1fr; row-gap:36px} }
+@media (max-width:540px){ .seg-grid{grid-template-columns:1fr; border-left:0} .seg{border-right:0; border-left:3px solid var(--accent); padding:4px 0 4px 18px} }
+
+/* Proceso */
+.steps{list-style:none; margin:48px 0 0; padding:0; counter-reset:paso; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0}
+.steps li{counter-increment:paso; position:relative; padding:0 18px 0 0}
+.steps li::before{content:counter(paso); display:grid; place-items:center; width:44px; height:44px; border-radius:50%; background:var(--hero-bg); color:var(--accent); font-family:var(--display); font-style:italic; font-weight:800; position:relative; z-index:1}
+.steps li::after{content:""; position:absolute; top:22px; left:44px; right:0; height:2px; background:var(--rule)}
+.steps li:last-child::after{display:none}
+.steps h3{font-size:1.08rem; margin:18px 0 8px}
+.steps p{color:var(--muted); font-size:.96rem; line-height:1.5}
+@media (max-width:900px){
+  .steps{grid-template-columns:1fr; gap:26px}
+  .steps li{padding:0 0 0 64px; min-height:44px}
+  .steps li::before{position:absolute; left:0; top:0}
+  .steps li::after{top:48px; bottom:-26px; left:21px; right:auto; width:2px; height:auto}
+  .steps h3{margin-top:8px}
+}
+
+/* Calculadora */
+.calc{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:48px; align-items:start}
+@media (max-width:900px){ .calc{grid-template-columns:1fr} }
+.panel{background:var(--surface); border:1px solid var(--rule); border-radius:20px; padding:clamp(20px,3vw,32px)}
+label{display:block; font-weight:600; font-size:.95rem; margin-bottom:6px}
+.field{margin-bottom:18px}
+input,select,textarea{width:100%; font:inherit; color:var(--text); background:var(--bg); border:1.5px solid var(--rule); border-radius:10px; padding:12px 14px}
+input:focus,select:focus,textarea:focus{outline:none; border-color:var(--brand)}
+.hint{color:var(--muted); font-size:.85rem; margin-top:6px}
+input[type=range]{padding:0; border:0; background:transparent; accent-color:var(--amarillo)}
+.range-row{display:flex; justify-content:space-between; align-items:baseline}
+.range-row output{font-family:var(--display); font-weight:800; font-size:1.2rem}
+.result{display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:8px; border-top:1px solid var(--rule)}
+.result div{padding:16px 12px 14px 0; border-bottom:1px solid var(--rule)}
+.result div:nth-child(even){padding-left:16px; border-left:1px solid var(--rule)}
+.result b{display:block; font-family:var(--display); font-size:clamp(1.4rem,3vw,1.9rem); font-weight:800; line-height:1.15}
+.result span{color:var(--muted); font-size:.9rem}
+.result .big{grid-column:1 / -1; padding-left:0 !important; border-left:0 !important}
+.result .big b{color:var(--brand)}
+.fine{color:var(--muted); font-size:.85rem; margin-top:16px}
+
+/* Proyectos */
+.projects{background:var(--surface); border-top:1px solid var(--rule)}
+.proj-grid{display:grid; grid-template-columns:1.25fr 1fr; gap:24px; margin-top:44px}
+@media (max-width:900px){ .proj-grid{grid-template-columns:1fr} }
+.sheet{border:1.5px solid var(--text); border-radius:4px; background:var(--bg); display:flex; flex-direction:column}
+.sheet-top{display:flex; justify-content:space-between; gap:16px; padding:18px 22px; border-bottom:1.5px solid var(--text)}
+.sheet-top small{color:var(--muted); font-size:.85rem; display:block}
+.sheet-top .loc{text-align:right; font-weight:600; font-size:.9rem}
+.sheet dl{margin:0; display:grid; grid-template-columns:1fr 1fr; flex:1}
+.sheet dl div{padding:14px 22px; border-bottom:1px solid var(--rule)}
+.sheet dl div:nth-child(odd){border-right:1px solid var(--rule)}
+.sheet dt{color:var(--muted); font-size:.85rem}
+.sheet dd{margin:2px 0 0; font-weight:700; font-stretch:110%; font-size:1.15rem}
+.sheet p{padding:16px 22px 20px; color:var(--muted); font-size:.95rem}
+.stack{display:grid; gap:24px}
+.cities{margin-top:48px; display:flex; flex-wrap:wrap; gap:10px}
+.cities span{border:1px solid var(--rule); border-radius:999px; padding:6px 14px; font-size:.92rem; font-weight:500}
+.cities .hn{border-color:var(--accent)}
+
+/* Clientes */
+.clients{background:var(--hero-bg); color:var(--hero-text)}
+.clients .lede{color:var(--hero-muted)}
+.logo-wall{list-style:none; margin:48px 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); border-top:1px solid var(--hero-rule); border-left:1px solid var(--hero-rule)}
+.logo-wall li{display:grid; place-items:center; padding:30px 22px; min-height:120px; border-right:1px solid var(--hero-rule); border-bottom:1px solid var(--hero-rule)}
+.logo-wall img{max-width:100%; max-height:52px; width:auto; height:auto; object-fit:contain; opacity:.92}
+.also{margin-top:28px; color:var(--hero-muted); font-size:.95rem; max-width:80ch}
+.clients .ally{margin-top:40px; background:transparent; border:1.5px solid var(--accent)}
+.gear-sec{padding-top:clamp(56px,7vw,88px)}
+.gear-sec .gear{margin-top:0}
+.ally{margin-top:48px; display:flex; gap:20px; align-items:center; flex-wrap:wrap; padding:22px 26px; border-radius:16px; background:var(--hero-bg); color:var(--hero-text)}
+.ally strong{font-stretch:115%; font-size:1.2rem}
+.ally p{color:var(--hero-muted); max-width:60ch}
+
+/* Equipos */
+.gear{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:40px; margin-top:40px}
+.gear h3{margin-bottom:8px}
+.gear p{color:var(--muted)}
+@media (max-width:760px){ .gear{grid-template-columns:1fr; gap:26px} }
+
+/* Contacto */
+.contact{background:var(--hero-bg); color:var(--hero-text)}
+.contact .lede{color:var(--hero-muted)}
+.contact-grid{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:56px; margin-top:8px}
+@media (max-width:900px){ .contact-grid{grid-template-columns:1fr; gap:40px} }
+.contact .panel{background:var(--surface); color:var(--text); border-color:transparent}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:0 16px}
+@media (max-width:520px){ .two{grid-template-columns:1fr} }
+.offices{margin-top:36px; display:grid; gap:22px}
+.offices h3{font-size:1.05rem; margin-bottom:4px}
+.offices p, .offices a{color:var(--hero-muted)}
+.offices a{text-decoration:none}
+.offices a:hover{color:var(--hero-text); text-decoration:underline}
+footer{background:var(--hero-bg); color:var(--hero-muted); border-top:1px solid var(--hero-rule); padding:28px 0 32px; font-size:.9rem}
+footer .wrap{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap}
+.foot-brand{display:flex; align-items:center; gap:18px; flex-wrap:wrap}
+.foot-brand img{height:44px; width:auto}
+footer nav{display:flex; gap:18px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--hero-text)}
+.ally img{height:44px; width:auto}
+.wa-float{position:fixed; right:18px; bottom:calc(18px + env(safe-area-inset-bottom,0px)); z-index:30; width:58px; height:58px; border-radius:50%; background:#25D366; display:grid; place-items:center; box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.wa-float svg{width:30px; height:30px; fill:#fff}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+</style>
+<link rel="stylesheet" href="premium.css">
+<link rel="stylesheet" href="motion.css">
+<link rel="stylesheet" href="services.css">
+<link rel="stylesheet" href="segments.css">
+<link rel="stylesheet" href="about-motion.css">
+<link rel="stylesheet" href="diagram.css">
+<link rel="stylesheet" href="polish.css">
+<link rel="stylesheet" href="smart-energy.css">
+<link rel="stylesheet" href="gallery.css">
+<link rel="stylesheet" href="process-light.css">
+<link rel="stylesheet" href="flow-polish.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio"><img src="assets/marca/logo-bm-blanco.webp" alt="BM Ingeniería y Energía S.A.S" width="150" height="60"></a>
+    <ul id="main-nav">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Cómo trabajamos</a></li>
+      <li><a href="#energia-inteligente">Tecnología</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="btn btn-sol" href="#contacto">Cotizar</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero" aria-labelledby="h-hero">
+  <svg class="hero-tech-network" viewBox="0 0 1600 760" preserveAspectRatio="none" aria-hidden="true">
+    <g class="hero-tech-lines">
+      <path d="M0 132h72l42-34h92l40 28h88"/>
+      <path d="M0 248h46l34 30h86"/>
+      <path d="M4 604h86l54-42h92"/>
+      <path d="M826 132h86l48 42h88"/>
+      <path d="M1234 76h108l46 38h134l48 42h30"/>
+      <path d="M1368 218h92l44 38h96"/>
+      <path d="M1310 590h86l54-42h118"/>
+      <path d="M1438 684h62l32-28h68"/>
+    </g>
+    <g class="hero-tech-faint">
+      <path d="M28 392h58l34-28h76"/>
+      <path d="M902 650h90l52-45h100"/>
+      <path d="M1188 328h54l28 24h78"/>
+      <path d="M1492 356h108"/>
+    </g>
+    <g class="hero-tech-nodes">
+      <circle cx="72" cy="132" r="4.2"/>
+      <circle cx="114" cy="98" r="3.2"/>
+      <circle cx="206" cy="98" r="3"/>
+      <circle cx="80" cy="278" r="3.2"/>
+      <circle cx="90" cy="604" r="4"/>
+      <circle cx="144" cy="562" r="3.2"/>
+      <circle cx="912" cy="132" r="3.4"/>
+      <circle cx="960" cy="174" r="4.2"/>
+      <circle cx="1234" cy="76" r="3.2"/>
+      <circle cx="1388" cy="114" r="4"/>
+      <circle cx="1460" cy="218" r="3.2"/>
+      <circle cx="1396" cy="590" r="4.2"/>
+      <circle cx="1450" cy="548" r="3.2"/>
+      <circle cx="1500" cy="684" r="3"/>
+    </g>
+    <g class="hero-tech-signal">
+      <circle cx="114" cy="98" r="3.1"/>
+      <circle cx="960" cy="174" r="3.1"/>
+      <circle cx="1388" cy="114" r="3.2"/>
+      <circle cx="1450" cy="548" r="3.2"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="hero-grid">
+    <div>
+    <p class="eyebrow">Ingeniería que conecta posibilidades</p>
+    <h1 id="h-hero">Ingeniería eléctrica y solar, <em>del diseño a la conexión</em> con la red.</h1>
+    <p class="lede">Diseñamos, tramitamos, instalamos y ponemos en marcha sistemas solares y eléctricos para hogares, comercios e industria. Un solo equipo responde por la ingeniería, los permisos ante el operador de red y los beneficios tributarios.</p>
+    <div class="hero-cta">
+      <a class="btn btn-sol" href="#calculadora">Calcular mi sistema solar</a>
+      <a class="btn btn-line" href="#servicios">Ver todos los servicios</a>
+    </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true"><svg class="circuit-art" viewBox="0 0 440 420" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1"><path d="M0 90h95l35 35v60h60M440 70h-70l-40 40v60h-40M20 350h80l45-45v-50M440 320h-85l-35-35v-40"/><circle cx="190" cy="185" r="4"/><circle cx="290" cy="170" r="4"/><circle cx="145" cy="255" r="4"/><circle cx="320" cy="245" r="4"/><path d="M220 20v30m0 320v30M15 210h30m350 0h30"/></g><g fill="#ffc107"><circle cx="95" cy="90" r="3"/><circle cx="355" cy="320" r="3"/></g></svg><span class="visual-label top-label">Diseño · Energía · Conexión</span><img class="hero-iso" src="assets/marca/isotipo-bm-blanco.webp" alt="" width="320" height="320"><svg class="hero-blueprint" viewBox="0 0 500 190" fill="none" aria-hidden="true"><defs><pattern id="hero-cells" width="28" height="25" patternUnits="userSpaceOnUse"><path d="M28 0H0v25" stroke="currentColor" stroke-width=".65"/></pattern></defs><g stroke="currentColor" stroke-width="1"><path d="m65 92 118-63 255 59-120 69Z" fill="#084748"/><path d="m65 92 118-63 255 59-120 69Z" fill="url(#hero-cells)"/><path d="M65 92v12l253 66 120-69V88M318 157v13M110 116v21m272 4v19"/><path d="M28 116 6 130l297 58M460 79l28 6-149 96" opacity=".4"/><path d="M20 28h53l30 30M440 34h31v22" opacity=".5"/></g><path class="energy-route" d="M13 74h34l25-26h52M389 149h61l25-25h25" stroke-width="1.4"/><g fill="#ffce46"><circle cx="124" cy="48" r="3"/><circle cx="389" cy="149" r="3"/></g></svg><span class="visual-label bottom-label">Ingeniería de principio a fin</span></div>
+    </div>
+
+    <div class="sld" aria-labelledby="sld-title">
+      <div class="sld-head"><div class="sld-heading"><span class="diagram-eyebrow">DEL SOL A LA RED</span>
+        <strong id="sld-title">Acompañamos cada tramo del sistema</strong>
+        <p>Toque un punto del diagrama para ver qué hacemos ahí.</p></div><div class="diagram-controls"><span class="diagram-auto-label">Recorrido activo</span><button class="diagram-pause" type="button" aria-label="Pausar corriente del diagrama" aria-pressed="false" hidden><span aria-hidden="true">Ⅱ</span><span class="diagram-pause-label">Auto</span></button></div>
+      </div>
+      <ol class="chain" role="list">
+        <li><button class="node" data-k="fv" aria-pressed="true"><span class="station-number" aria-hidden="true">01</span><span class="station-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 30 14 12h26l-6 18z"/><path d="M11 21h26M18.7 12l-3.4 18M27.3 12l-3.4 18"/><path d="M24 30v8M18 38h12"/></svg></span><span class="station-label">Generador solar</span></button><i class="wire" aria-hidden="true"></i></li>
+        <li><button class="node" data-k="inv" aria-pressed="false"><span class="station-number" aria-hidden="true">02</span><span class="station-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="8" width="32" height="32" rx="2"/><path d="M8 40 40 8"/><path d="M13 16h9M13 20h9"/><path d="M26 31c2-4 4-4 6 0s4 4 6 0" transform="translate(-3 0)"/></svg></span><span class="station-label">Inversores</span></button><i class="wire" aria-hidden="true"></i></li>
+        <li><button class="node" data-k="prot" aria-pressed="false"><span class="station-number" aria-hidden="true">03</span><span class="station-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4v12M24 32v12"/><path d="M24 16l9 14"/><circle cx="24" cy="16" r="2"/><circle cx="24" cy="32" r="2"/><path d="M14 22h6M14 26h6"/></svg></span><span class="station-label">Protecciones y control</span></button><i class="wire" aria-hidden="true"></i></li>
+        <li><button class="node" data-k="med" aria-pressed="false"><span class="station-number" aria-hidden="true">04</span><span class="station-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16"/><path d="M16 22h16l-4-4M32 27H16l4 4"/></svg></span><span class="station-label">Medida bidireccional</span></button><i class="wire" aria-hidden="true"></i></li>
+        <li><button class="node" data-k="red" aria-pressed="false"><span class="station-number" aria-hidden="true">05</span><span class="station-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 14 44M24 4l10 40M17 30h14M15.5 36h17M19 20h10M12 12h24"/></svg></span><span class="station-label">Red del operador</span></button></li>
+      </ol>
+      <div class="sld-detail" aria-live="polite"><div class="diagram-stamp" aria-hidden="true"><span class="stamp-label">TRAMO ACTIVO</span><span class="stamp-number">01</span><div class="stamp-icon"></div><span class="stamp-route"></span></div><div class="diagram-copy">
+        <div class="diagram-copy-top"><div class="diagram-main"><span class="diagram-badge" id="sld-badge">Ingeniería del sistema</span><h3 id="sld-h">Diseño del generador fotovoltaico</h3><p id="sld-p">Dimensionamos el sistema según su consumo real, simulamos la producción y elegimos módulos Tier 1 y la estructura adecuada para su techo o terreno.</p></div><div class="diagram-meter" aria-hidden="true"><span class="diagram-meter-label">Tramo</span><strong id="sld-step">01 / 05</strong><span class="diagram-meter-bar"><span id="sld-meter-fill"></span></span></div></div>
+        <ul class="diagram-highlights" id="sld-highlights"><li>Módulos y estructura adecuados</li><li>Producción estimada</li><li>Diseño listo para ejecutar</li></ul>
+        <div class="diagram-actions"><a id="sld-a" href="#svc-solar">Ver servicio <span aria-hidden="true">↗</span></a><button class="diagram-next" type="button">Siguiente tramo <span aria-hidden="true">→</span></button></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="figures" aria-label="Resultados">
+  <div class="wrap">
+    <dl>
+      <div><dt>+130</dt><dd>Estudios de conexión aprobados</dd></div>
+      <div><dt>+2.600</dt><dd>paneles instalados</dd></div>
+      <div><dt>+15.000 MM COP</dt><dd>en incentivos tributarios</dd></div>
+      <div><dt>+5 MWp</dt><dd>en ingenierías de detalle</dd></div>
+      <div><dt>1.6 MWp</dt><dd>construidos</dd></div>
+    </dl>
+  </div>
+</div>
+
+<section class="about" aria-labelledby="h-about">
+  <div class="about-atmosphere" aria-hidden="true"><svg class="about-traces" viewBox="0 0 1400 650" preserveAspectRatio="none"><path class="trace-line" d="M0 95h180l55 55h210M0 545h260l50-50h170M1030 0v70l65 65h305M1140 650v-50l70-70h190"/><path class="trace-flow" d="M0 95h180l55 55h210M0 545h260l50-50h170M1030 0v70l65 65h305M1140 650v-50l70-70h190"/><circle cx="445" cy="150" r="3"/><circle cx="480" cy="495" r="3"/></svg></div>
+  <div class="wrap about-grid">
+    <div class="about-visual"><span class="about-scan" aria-hidden="true"></span><span class="about-drafting-corners" aria-hidden="true"></span><button class="about-motion-toggle" type="button" aria-pressed="false" aria-label="Pausar animación del plano" hidden><span aria-hidden="true">Ⅱ</span></button><span class="drawing-label" aria-hidden="true">BM / INGENIERÍA APLICADA</span><span class="drawing-mark" aria-hidden="true">+</span><svg class="about-blueprint" viewBox="0 0 500 185" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width=".8"><path d="m30 95 115-64 192 45-115 69Z"/><path d="m55 101 114-64m-89 71 114-65m-88 72 114-66m-88 73 114-66m-88 73 114-65M67 75l193 45M103 54l193 45"/><path d="M30 95v10l192 53 115-70V76M222 145v13M64 115v24m230-29v27"/><rect x="390" y="40" width="74" height="105" rx="3"/><path d="M406 57h42v28h-42zM416 104h21m-21 9h21m-21 9h21M340 104h20v-35h30"/><circle cx="360" cy="104" r="3"/><path d="M10 148h170m170 17h130M16 24h25m-12-12v25" opacity=".4"/></g><g fill="#a68713"><circle cx="398" cy="132" r="2"/><circle cx="406" cy="132" r="2"/><circle cx="414" cy="132" r="2"/></g><path class="about-energy" d="M340 104h20V69h30" fill="none"/></svg><img src="assets/marca/logo-bm-color.webp" alt="Logotipo BM Ingeniería y Energía S.A.S" class="about-logo" width="320" height="129"></div>
+    <div>
+      <p class="eyebrow">01 / Somos BM</p>
+      <h2 id="h-about">Ingenieros de campo y de escritorio.</h2>
+      <p class="lede" style="margin-top:16px">Somos una empresa de Barranquilla con sede en Montería. Armamos tableros y subimos a los techos, y también firmamos estudios de conexión y radicamos ante el operador de red. Por eso nuestros diseños se pueden construir y nuestras obras pasan la revisión.</p>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" aria-labelledby="h-svc">
+  <div class="wrap">
+    <div class="services-head">
+      <div><p class="eyebrow">02 / Soluciones integrales</p>
+      <h2 id="h-svc">Todo lo que necesita un proyecto eléctrico, bajo un mismo contrato.</h2></div>
+      <p class="lede">Trabajamos para usuarios finales y también como brazo técnico de instaladores, constructoras y EPC que necesitan ingeniería, estudios o trámites.</p>
+    </div>
+
+    <div class="service-browser">
+      <div class="service-picker">
+        <p class="service-picker-label">Explore nuestras especialidades <span aria-hidden="true">↘</span></p><p class="service-picker-hint">Selecciona un servicio para ver sus detalles.</p>
+        <div class="service-tabs" aria-label="Servicios de BM">
+        <button class="service-card" id="tab-svc-solar" type="button" data-service="svc-solar"><span class="service-card-top"><span class="service-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 23 10 7h23l-5 16H5Zm3-8h23M17 7l-5 16M25 7l-5 16M18 23v8m-6 0h12"/></svg></span><span class="service-number">01</span></span><span class="service-card-title">Energía solar fotovoltaica</span><span class="service-card-arrow" aria-hidden="true">↗</span></button>
+        <button class="service-card" id="tab-svc-conexion" type="button" data-service="svc-conexion"><span class="service-card-top"><span class="service-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3 9 33M18 3l9 30M8 10h20M12 19h12M10 26h16M4 10v6m28-6v6"/></svg></span><span class="service-number">02</span></span><span class="service-card-title">Estudios y trámites de conexión</span><span class="service-card-arrow" aria-hidden="true">↗</span></button>
+        <button class="service-card" id="tab-svc-incentivos" type="button" data-service="svc-incentivos"><span class="service-card-top"><span class="service-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3 31 8v10c0 8-13 15-13 15S5 26 5 18V8l13-5Zm-6 16 4 4 8-10"/></svg></span><span class="service-number">03</span></span><span class="service-card-title">Incentivos tributarios</span><span class="service-card-arrow" aria-hidden="true">↗</span></button>
+        <button class="service-card" id="tab-svc-ingenieria" type="button" data-service="svc-ingenieria"><span class="service-card-top"><span class="service-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h17l6 6v22H7V4Zm17 0v7h6M12 17h13M12 22h9M12 27h6"/></svg></span><span class="service-number">04</span></span><span class="service-card-title">Ingeniería de diseño y detalle</span><span class="service-card-arrow" aria-hidden="true">↗</span></button>
+        <button class="service-card" id="tab-svc-auto" type="button" data-service="svc-auto"><span class="service-card-top"><span class="service-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h28M4 18h28M4 28h28M11 4v8m14 2v8m-12 2v8"/></svg></span><span class="service-number">05</span></span><span class="service-card-title">Automatización y control industrial</span><span class="service-card-arrow" aria-hidden="true">↗</span></button>
+        <button class="service-card" id="tab-svc-obras" type="button" data-service="svc-obras"><span class="service-card-top"><span class="service-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 4a9 9 0 0 0-11 11L4 25a4 4 0 0 0 6 6l10-9A9 9 0 0 0 31 11l-6 5-5-5 3-7Z"/></svg></span><span class="service-number">06</span></span><span class="service-card-title">Obras eléctricas y mantenimiento</span><span class="service-card-arrow" aria-hidden="true">↗</span></button>
+        <button class="service-card" id="tab-svc-qa" type="button" data-service="svc-qa"><span class="service-card-top"><span class="service-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h18v10M7 4v28h11M12 10h8M12 16h5M24 17a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm5 12 5 5M21 24l2 2 4-4"/></svg></span><span class="service-number">07</span></span><span class="service-card-title">Revisión técnica de estudios</span><span class="service-card-arrow" aria-hidden="true">↗</span></button>
+        </div>
+        <div class="service-carousel-controls"><button type="button" class="service-prev" aria-label="Servicio anterior">←</button><span class="service-position" aria-live="polite">01 / 07</span><button type="button" class="service-next" aria-label="Servicio siguiente">→</button></div>
+      </div>
+      <div class="service-stage">
+        <article class="service-panel" id="svc-solar" aria-labelledby="title-svc-solar"><div class="service-panel-top" aria-hidden="true"><span>BM / SOLUCIONES INTEGRALES</span><span>01 / 07</span></div><div class="service-panel-symbol" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 23 10 7h23l-5 16H5Zm3-8h23M17 7l-5 16M25 7l-5 16M18 23v8m-6 0h12"/></svg></div><h3 id="title-svc-solar">Energía solar fotovoltaica</h3><p class="service-description">Sistemas conectados a red, híbridos con baterías y aislados, para hogares, comercios e industria.</p><p class="service-audience">Para quien quiere bajar la factura de energía o protegerse de los cortes.</p><ul>
+          <li>Sistemas on-grid para autoconsumo con entrega de excedentes</li>
+          <li>Sistemas híbridos con baterías de litio y respaldo</li>
+          <li>Sistemas aislados para fincas y sitios remotos</li>
+          <li>Paneles Tier 1 con garantía de 25 años</li>
+          <li>Monitoreo 24/7 desde una aplicación móvil</li>
+          <li>Mantenimiento preventivo y limpieza de módulos</li>
+        </ul><div class="service-panel-footer"><a class="btn btn-sol" href="#contacto" data-svc="Energía solar fotovoltaica">Cotizar este servicio</a></div></article>
+        <article class="service-panel" id="svc-conexion" aria-labelledby="title-svc-conexion"><div class="service-panel-top" aria-hidden="true"><span>BM / SOLUCIONES INTEGRALES</span><span>02 / 07</span></div><div class="service-panel-symbol" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3 9 33M18 3l9 30M8 10h20M12 19h12M10 26h16M4 10v6m28-6v6"/></svg></div><h3 id="title-svc-conexion">Estudios y trámites de conexión</h3><p class="service-description">Estudios de conexión simplificados y de acceso y conexión ante el operador de red, hasta la aprobación.</p><p class="service-audience">Para autogeneradores (AGPE y AGGE) y para firmas que necesitan el estudio sin montar su propio equipo.</p><ul>
+          <li>Estudio de Conexión Simplificado (ECS)</li>
+          <li>Estudio de Acceso y Conexión al Sistema de Potencia (EACP)</li>
+          <li>Flujos de carga, cortocircuito y coordinación de protecciones</li>
+          <li>Verificación de relés según los acuerdos vigentes del CNO</li>
+          <li>Radicación y seguimiento ante el operador de red</li>
+          <li>Respuesta técnica a no conformidades</li>
+        </ul><div class="service-panel-footer"><a class="btn btn-sol" href="#contacto" data-svc="Estudios y trámites de conexión">Cotizar este servicio</a></div></article>
+        <article class="service-panel" id="svc-incentivos" aria-labelledby="title-svc-incentivos"><div class="service-panel-top" aria-hidden="true"><span>BM / SOLUCIONES INTEGRALES</span><span>03 / 07</span></div><div class="service-panel-symbol" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3 31 8v10c0 8-13 15-13 15S5 26 5 18V8l13-5Zm-6 16 4 4 8-10"/></svg></div><h3 id="title-svc-incentivos">Incentivos tributarios</h3><p class="service-description">Gestionamos los beneficios de la Ley 1715 de 2014 y la Ley 2099 de 2021 ante la UPME.</p><p class="service-audience">Para empresas declarantes de renta que invierten en fuentes no convencionales de energía.</p><ul>
+          <li>Solicitud del certificado ante la UPME</li>
+          <li>Deducción en renta de hasta el 50 % de la inversión</li>
+          <li>Exclusión de IVA en equipos y servicios</li>
+          <li>Exención de aranceles en importaciones</li>
+          <li>Depreciación acelerada de activos</li>
+          <li>Acompañamiento al contador del cliente</li>
+        </ul><div class="service-panel-footer"><a class="btn btn-sol" href="#contacto" data-svc="Incentivos tributarios">Cotizar este servicio</a></div></article>
+        <article class="service-panel" id="svc-ingenieria" aria-labelledby="title-svc-ingenieria"><div class="service-panel-top" aria-hidden="true"><span>BM / SOLUCIONES INTEGRALES</span><span>04 / 07</span></div><div class="service-panel-symbol" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h17l6 6v22H7V4Zm17 0v7h6M12 17h13M12 22h9M12 27h6"/></svg></div><h3 id="title-svc-ingenieria">Ingeniería de diseño y detalle</h3><p class="service-description">Diseños eléctricos completos, listos para construir y certificar bajo RETIE.</p><p class="service-audience">Para proyectos propios y para EPC, constructoras e instaladores que subcontratan la ingeniería.</p><ul>
+          <li>Memorias de cálculo y cuadros de carga</li>
+          <li>Planos unifilares, de planta y de detalle</li>
+          <li>Simulación de producción energética</li>
+          <li>Cantidades de obra y especificaciones de equipos</li>
+          <li>Diseños para subestaciones y media tensión</li>
+          <li>Informe final de proyecto y documentación as-built</li>
+        </ul><div class="service-panel-footer"><a class="btn btn-sol" href="#contacto" data-svc="Ingeniería de diseño y detalle">Cotizar este servicio</a></div></article>
+        <article class="service-panel" id="svc-auto" aria-labelledby="title-svc-auto"><div class="service-panel-top" aria-hidden="true"><span>BM / SOLUCIONES INTEGRALES</span><span>05 / 07</span></div><div class="service-panel-symbol" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h28M4 18h28M4 28h28M11 4v8m14 2v8m-12 2v8"/></svg></div><h3 id="title-svc-auto">Automatización y control industrial</h3><p class="service-description">Tableros, transferencias y lógica de control para plantas y edificios.</p><p class="service-audience">Para plantas, bodegas e instalaciones que necesitan operar sin interrupciones.</p><ul>
+          <li>Diseño y ensamble de tableros de control y fuerza</li>
+          <li>Transferencias automáticas red, planta y solar</li>
+          <li>Mando de interruptores motorizados</li>
+          <li>Cableado de transformadores de corriente y medida</li>
+          <li>Integración de PLC y monitoreo remoto</li>
+          <li>Pruebas y puesta en servicio</li>
+        </ul><div class="service-panel-footer"><a class="btn btn-sol" href="#contacto" data-svc="Automatización y control industrial">Cotizar este servicio</a></div></article>
+        <article class="service-panel" id="svc-obras" aria-labelledby="title-svc-obras"><div class="service-panel-top" aria-hidden="true"><span>BM / SOLUCIONES INTEGRALES</span><span>06 / 07</span></div><div class="service-panel-symbol" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 4a9 9 0 0 0-11 11L4 25a4 4 0 0 0 6 6l10-9A9 9 0 0 0 31 11l-6 5-5-5 3-7Z"/></svg></div><h3 id="title-svc-obras">Obras eléctricas y mantenimiento</h3><p class="service-description">Instalaciones nuevas, adecuaciones y mantenimiento de redes internas.</p><p class="service-audience">Para comercios, industrias y copropiedades con personal técnico certificado.</p><ul>
+          <li>Instalaciones eléctricas en baja y media tensión</li>
+          <li>Adecuación de acometidas y tableros</li>
+          <li>Mantenimiento preventivo y correctivo</li>
+          <li>Termografía y diagnóstico de fallas</li>
+          <li>Sistemas de puesta a tierra y apantallamiento</li>
+          <li>Acompañamiento en inspección RETIE</li>
+        </ul><div class="service-panel-footer"><a class="btn btn-sol" href="#contacto" data-svc="Obras eléctricas y mantenimiento">Cotizar este servicio</a></div></article>
+        <article class="service-panel" id="svc-qa" aria-labelledby="title-svc-qa"><div class="service-panel-top" aria-hidden="true"><span>BM / SOLUCIONES INTEGRALES</span><span>07 / 07</span></div><div class="service-panel-symbol" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h18v10M7 4v28h11M12 10h8M12 16h5M24 17a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm5 12 5 5M21 24l2 2 4-4"/></svg></div><h3 id="title-svc-qa">Revisión técnica de estudios</h3><p class="service-description">Auditamos estudios de conexión de terceros antes de radicarlos para evitar devoluciones.</p><p class="service-audience">Para firmas de ingeniería y desarrolladores que quieren aprobar a la primera.</p><ul>
+          <li>Revisión contra requisitos del operador de red</li>
+          <li>Chequeo de ajustes de protecciones</li>
+          <li>Lista de hallazgos priorizada</li>
+          <li>Acompañamiento en la corrección</li>
+        </ul><div class="service-panel-footer"><a class="btn btn-sol" href="#contacto" data-svc="Revisión técnica de estudios">Cotizar este servicio</a></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="segments audience-network" aria-labelledby="h-seg">
+  <div class="wrap">
+    <div class="audience-heading"><div><p class="eyebrow">03 / Cada necesidad, una solución</p><h2 id="h-seg">Un proyecto a la medida de quien lo contrata.</h2></div><span class="audience-heading-note" aria-hidden="true">DIFERENTES ESCALAS.<br>LA MISMA PRECISIÓN.</span></div>
+    <div class="audience-layout">
+      <div class="network-console">
+        <div class="network-console-head"><span><i aria-hidden="true"></i> INGENIERÍA A SU ESCALA</span><button class="network-motion-toggle" type="button" aria-pressed="false" aria-label="Pausar animación del gráfico" hidden><span aria-hidden="true">Ⅱ</span></button></div>
+        <svg class="network-drawing" viewBox="0 0 440 470" fill="none" aria-hidden="true">
+<defs><pattern id="network-grid" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M22 0H0v22" stroke="#a6d4bf" stroke-opacity=".09" stroke-width=".6"/></pattern><radialGradient id="network-halo"><stop stop-color="#4eaf8a" stop-opacity=".25"/><stop offset="1" stop-color="#4eaf8a" stop-opacity="0"/></radialGradient></defs>
+<path fill="url(#network-grid)" d="M0 0h440v470H0z"/><circle cx="220" cy="231" r="188" fill="url(#network-halo)"/>
+<g class="network-orbit" stroke="#a8d2b9" stroke-opacity=".3"><circle cx="220" cy="231" r="105" stroke-dasharray="2 12"/><path d="M220 111a120 120 0 0 1 120 120M220 351a120 120 0 0 1-120-120"/><circle cx="340" cy="231" r="3" fill="#ffce46" stroke="none"/></g>
+<g class="network-routes" stroke-linecap="round" stroke-linejoin="round">
+<path class="route-base" d="M190 196v-44H85v-37M250 196v-44h105v-37M190 264v48H85v43M250 264v48h105v43"/>
+<path class="route-current" data-sector="0" d="M190 196v-44H85v-37"/><path class="route-current" data-sector="1" d="M250 196v-44h105v-37"/><path class="route-current" data-sector="2" d="M190 264v48H85v43"/><path class="route-current" data-sector="3" d="M250 264v48h105v43"/>
+</g>
+<g class="network-core"><circle cx="220" cy="231" r="71" fill="#0b5050" stroke="#b7d9bf" stroke-opacity=".25"/><circle class="core-pulse" cx="220" cy="231" r="77" stroke="#ffc107" stroke-opacity=".45"/><image href="assets/marca/isotipo-bm-blanco.webp" x="177" y="185" width="86" height="92"/></g>
+<g class="network-node" data-sector="0"><rect x="41" y="35" width="88" height="88" rx="18"/><g class="network-symbol"><path d="m56 75 29-24 29 24M64 71v34h42V71M77 105V86h16v19"/><path class="network-window" d="M73 65h24l-6-6H80z"/></g><text x="85" y="23">HOGARES</text></g>
+<g class="network-node" data-sector="1"><rect x="311" y="35" width="88" height="88" rx="18"/><g class="network-symbol"><path d="M327 76h56l-6-20h-44l-6 20ZM332 76v29h46V76M348 105V85h16v20M341 57l-3 19m17-19v19m14-19 3 19"/><path class="network-window" d="M338 86h5v8h-5z"/></g><text x="355" y="23">COMERCIOS</text></g>
+<g class="network-node" data-sector="2"><rect x="41" y="351" width="88" height="88" rx="18"/><g class="network-symbol"><path d="M56 417v-42l17 10v-13l18 12v-23h12l9 56H56Z"/><path class="network-window" d="M64 397h6v7h-6zm15 0h6v7h-6zm16 0h6v7h-6z"/></g><text x="85" y="459">INDUSTRIA</text></g>
+<g class="network-node" data-sector="3"><rect x="311" y="351" width="88" height="88" rx="18"/><g class="network-symbol"><path d="M330 366h38v47h-38zM340 377h18m-18 9h12m-12 9h8M368 381h12v43h-39v-11"/><path class="network-window" d="m356 399 5 5 10-12"/></g><text x="355" y="459">INGENIERÍA / EPC</text></g>
+<g stroke="#b0d0b6" stroke-opacity=".35"><path d="M18 231h20m-10-10v20M402 231h20m-10-10v20M210 18h20m-10-10v20"/></g>
+</svg>
+        <div class="network-console-foot"><span>Una conexión.<br><strong>Muchas posibilidades.</strong></span><span class="network-foot-arrow" aria-hidden="true">↗</span></div>
+      </div>
+      <div class="audience-list"><article class="audience-row" data-sector="0"><span class="audience-index" aria-hidden="true">01</span><div class="audience-copy"><h3>Hogares</h3><p>Sistemas desde pocos paneles, con financiación y monitoreo en el celular. Ahorro visible desde la primera factura.</p><a class="tag" href="#calculadora">Calcular mi sistema</a></div><span class="audience-corner" aria-hidden="true">↗</span></article>
+<article class="audience-row" data-sector="1"><span class="audience-index" aria-hidden="true">02</span><div class="audience-copy"><h3>Comercios</h3><p>Restaurantes, tiendas y oficinas que consumen de día. Es el perfil donde la energía solar se paga más rápido.</p><a class="tag" href="#svc-solar">Energía solar</a></div><span class="audience-corner" aria-hidden="true">↗</span></article>
+<article class="audience-row" data-sector="2"><span class="audience-index" aria-hidden="true">03</span><div class="audience-copy"><h3>Industria</h3><p>Plantas con demanda alta, transferencias y control. Combinamos solar, protecciones y beneficios tributarios.</p><a class="tag" href="#svc-incentivos">Incentivos tributarios</a></div><span class="audience-corner" aria-hidden="true">↗</span></article>
+<article class="audience-row" data-sector="3"><span class="audience-index" aria-hidden="true">04</span><div class="audience-copy"><h3>Firmas de ingeniería y EPC</h3><p>Le hacemos la ingeniería, el estudio de conexión o la revisión técnica para que usted se enfoque en construir.</p><a class="tag" href="#svc-conexion">Estudios de conexión</a></div><span class="audience-corner" aria-hidden="true">↗</span></article></div>
+    </div>
+  </div>
+</section>
+
+<section id="proceso" aria-labelledby="h-proc">
+  <div class="wrap">
+    <p class="eyebrow">04 / Del análisis a la conexión</p>
+      <h2 id="h-proc">Así avanza su proyecto.</h2>
+    <ol class="steps">
+      <li><h3>Análisis y visita</h3><p>Revisamos sus facturas y visitamos el sitio para medir techo, tablero y acometida.</p></li>
+      <li><h3>Diseño y propuesta</h3><p>Entregamos el diseño, la producción esperada y el retorno de la inversión.</p></li>
+      <li><h3>Trámites</h3><p>Radicamos ante el operador de red y la UPME mientras llegan los equipos.</p></li>
+      <li><h3>Instalación</h3><p>Montaje con personal certificado, trabajo en alturas y pruebas eléctricas.</p></li>
+      <li><h3>Conexión y monitoreo</h3><p>Puesta en marcha, medidor bidireccional y seguimiento de la producción.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="smart-energy" id="energia-inteligente" aria-labelledby="h-smart">
+  <div class="wrap smart-energy-grid">
+    <div class="smart-energy-copy">
+      <p class="eyebrow">05 / Energía inteligente</p>
+      <h2 id="h-smart">Tu sistema sigue trabajando <em>cuando tú no estás.</em></h2>
+      <p class="smart-lede">Monitorea generación y rendimiento desde el celular y combina esa visibilidad con equipos Tier 1, alta eficiencia y una vida útil pensada para trabajar durante décadas.</p>
+      <div class="smart-feature-grid" aria-label="Beneficios del sistema">
+        <article class="smart-feature"><i aria-hidden="true"></i><strong>Monitoreo 24/7</strong><span>Consulta la producción del sistema desde la aplicación móvil.</span></article>
+        <article class="smart-feature"><i aria-hidden="true"></i><strong>Paneles Tier 1</strong><span>Equipos de primer nivel para proyectos residenciales, comerciales e industriales.</span></article>
+        <article class="smart-feature"><i aria-hidden="true"></i><strong>25–30 años</strong><span>Vida útil de los módulos, con garantía de 25 años.</span></article>
+        <article class="smart-feature"><i aria-hidden="true"></i><strong>Alta eficiencia</strong><span>Cálculos precisos para aprovechar mejor cada metro cuadrado disponible.</span></article>
+      </div>
+      <div class="smart-energy-actions">
+        <a class="btn btn-sol" href="#calculadora">Calcular mi sistema</a>
+        <a class="btn btn-line" href="#contacto">Hablar con un ingeniero</a>
+      </div>
+    </div>
+
+    <div class="smart-stage" aria-label="Visualización de casa solar y monitoreo móvil">
+      <span class="smart-blueprint" aria-hidden="true"></span>
+      <span class="smart-orbit one" aria-hidden="true"></span>
+      <span class="smart-orbit two" aria-hidden="true"></span>
+      <svg class="smart-energy-line" viewBox="0 0 760 660" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M150 470 C220 390 325 385 410 315 S560 175 648 142"/>
+        <circle cx="150" cy="470" r="4"/><circle cx="410" cy="315" r="4"/><circle cx="648" cy="142" r="4"/>
+      </svg>
+      <div class="smart-house-wrap"><span class="smart-house-glow" aria-hidden="true"></span><img class="smart-house" src="assets/tecnologia/casa-solar.png" alt="Casa y edificio con paneles solares"></div>
+      <img class="smart-phones" src="assets/tecnologia/monitoreo-telefonos.png" alt="Aplicaciones móviles para monitoreo de energía solar en tiempo real">
+      <span class="smart-chip monitor">Monitoreo 24/7</span>
+      <span class="smart-chip tier">Tier 1</span>
+      <span class="smart-chip life">25–30 años</span>
+      <span class="smart-chip live">Datos en tiempo real</span>
+      <div class="smart-kpi"><small>Control desde app</small><strong>24/7</strong><span>Generación y rendimiento visibles desde el celular.</span></div>
+      <span class="smart-scan" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+<section id="calculadora" class="segments" aria-labelledby="h-calc">
+  <div class="wrap calc">
+    <div>
+      <p class="eyebrow">06 / Proyecte su energía</p>
+      <h2 id="h-calc">¿Qué tamaño de sistema necesita?</h2>
+      <p class="lede" style="margin-top:18px">Mueva el consumo mensual que aparece en su factura de energía. Le damos un estimado inmediato; la cifra exacta sale de la visita técnica, sin costo.</p>
+    </div>
+    <div class="panel">
+      <div class="field">
+        <div class="range-row"><label for="kwh">Consumo mensual</label><output id="kwh-out" for="kwh">600 kWh</output></div>
+        <input type="range" id="kwh" min="150" max="20000" step="50" value="600">
+        <div class="range-limits" aria-hidden="true"><span>150 kWh</span><span>20.000 kWh</span></div>
+      </div>
+      <div class="field">
+        <label for="tarifa">Tarifa por kWh (COP)</label>
+        <input type="number" id="tarifa" inputmode="numeric" value="1000" min="200" max="3000" step="10">
+        <p class="hint">Aparece en su factura como valor unitario del kWh.</p>
+      </div>
+      <div class="result" aria-live="polite">
+        <div class="big"><b id="r-ahorro">$0</b><span>ahorro mensual estimado</span></div>
+        <div><b id="r-kwp">0 kWp</b><span>potencia del sistema</span></div>
+        <div><b id="r-pan">0</b><span>paneles de 650 W</span></div>
+        <div><b id="r-area">0 m²</b><span>área de techo aproximada</span></div>
+        <div><b id="r-anual">$0</b><span>ahorro en el primer año</span></div>
+      </div>
+      <p class="fine">Estimación con 5,2 horas de sol pico promedio de la región Caribe y un rendimiento del 80 %. No incluye cambios de tarifa ni venta de excedentes.</p>
+      <a class="btn btn-sol" style="margin-top:20px" href="#contacto" id="calc-cta">Pedir visita técnica</a>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos" class="projects" aria-labelledby="h-proj">
+  <div class="wrap">
+    <p class="eyebrow">07 / Ingeniería en acción</p>
+    <h2 id="h-proj">Proyectos que hablan por nosotros.</h2>
+    <div class="proj-grid proj-grid-static" id="project-cases">
+      <article class="sheet project-engineering-card">
+        <svg class="project-art" viewBox="0 0 620 220" fill="none" aria-hidden="true"><defs><pattern id="solar-grid" width="30" height="24" patternUnits="userSpaceOnUse"><path d="M30 0H0v24" stroke="#a9d0ba" stroke-width=".65"/></pattern></defs><g stroke="#91bdab" stroke-width="1"><path d="M0 185h620M45 165l180-85 210 55-180 85Z" opacity=".2"/><path d="m105 130 120-80 275 55-120 80Z" fill="url(#solar-grid)"/><path d="m105 130 275 55 120-80M105 130v20l275 55v-20M500 105v20l-120 80M170 165v24m245-3v20"/><path d="M45 40h45m-23-22v44M535 175h45m-23-22v44" opacity=".4"/></g><path d="M365 40h140l35 35" stroke="#ffc107"/><circle cx="365" cy="40" r="4" fill="#ffc107"/><circle cx="540" cy="75" r="4" stroke="#ffc107"/></svg>
+        <div class="sheet-top"><div><small>Ingeniería de detalle</small><h3>Universidad de La Guajira</h3></div><div class="loc">Riohacha,<br>La Guajira</div></div>
+        <dl>
+          <div><dt>Potencia DC</dt><dd>1.935,70 kWp</dd></div>
+          <div><dt>Potencia AC</dt><dd>1.495 kW</dd></div>
+          <div><dt>Módulos</dt><dd>2.978 de 650 Wp</dd></div>
+          <div><dt>Inversores</dt><dd>22</dd></div>
+          <div><dt>Edificios</dt><dd>12</dd></div>
+          <div><dt>Ampliación</dt><dd>174,85 kWp</dd></div>
+        </dl>
+        <p>Diseño completo de la planta distribuida en el campus, con cantidades, ubicaciones y documentación para construcción.</p>
+      </article>
+
+      <div class="stack project-stack-static">
+        <article class="sheet connection-featured">
+          <div class="connection-head">
+            <div>
+              <small>Estudios de conexión</small>
+              <h3>4 minigranjas solares</h3>
+              <span class="connection-location">Turbana, Bolívar</span>
+            </div>
+            <div class="approval-badge" aria-label="Aprobado por Afinia">
+              <span class="approval-check" aria-hidden="true">✓</span>
+              <span class="approval-copy"><b>APROBADO</b><em>por AFINIA</em></span>
+              <span class="approval-logo-wrap" aria-hidden="true"><img src="assets/partners/afinia-logo.png" alt=""></span>
+            </div>
+          </div>
+          <div class="connection-metrics">
+            <div><span>Potencia total</span><strong>0.99 MW</strong><small>por planta</small></div>
+            <div><span>Estudio</span><strong>EACP</strong><small>completo</small></div>
+            <div><span>Tensión</span><strong>13.8 kV</strong><small>nivel de conexión</small></div>
+            <div><span>Aprobación</span><strong>6 meses</strong><small>sin no conformidades</small></div>
+            <div class="connection-status"><span>Estado</span><strong>En construcción</strong><i aria-hidden="true"></i></div>
+          </div>
+          <p class="connection-copy">Estudio de acceso y conexión completo para cuatro mini-granjas, desde flujos de carga y cortocircuito hasta el ajuste de protecciones, aprobados por el operador de red.</p>
+        </article>
+
+        <article class="sheet solar-summary-card">
+          <div class="sheet-top"><div><small>Solar residencial, comercial e industrial</small><h3>Más de 35 sistemas</h3></div><div class="loc">6 ciudades</div></div>
+          <dl>
+            <div><dt>Paneles</dt><dd>+2.600</dd></div>
+            <div><dt>Monitoreo</dt><dd>24/7</dd></div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="gallery-section" aria-labelledby="h-gallery">
+  <div class="wrap">
+    <div class="gallery-head">
+      <div>
+        <span class="gallery-kicker">08 / Proyectos en imágenes</span>
+        <h2 class="gallery-title" id="h-gallery">Proyectos reales. Energía en funcionamiento.</h2>
+      </div>
+      <p class="gallery-intro">Un recorrido compacto por instalaciones ejecutadas en distintas ciudades, con las fotografías reales de BM Ingeniería.</p>
+    </div>
+
+    <div class="gallery-carousel" tabindex="0" aria-roledescription="carrusel" aria-label="Galería de proyectos solares">
+      <div class="gallery-stage">
+        <div class="gallery-track">
+          <article class="gallery-slide is-active" aria-label="Proyecto 1 de 7">
+            <img src="assets/galeria/proyecto-01-barranquilla.webp" alt="Proyecto solar de BM Ingeniería en Barranquilla" width="1195" height="896" loading="eager" decoding="async">
+            <div class="gallery-caption"><span class="gallery-index">01 / 07</span><h3>Barranquilla</h3><p>Proyecto solar · Instalación fotovoltaica</p><span class="gallery-line"></span></div>
+          </article>
+          <article class="gallery-slide" aria-label="Proyecto 2 de 7">
+            <img src="assets/galeria/proyecto-02-sincelejo.webp" alt="Proyecto solar de BM Ingeniería en Sincelejo" width="1800" height="1350" loading="lazy" decoding="async">
+            <div class="gallery-caption"><span class="gallery-index">02 / 07</span><h3>Sincelejo</h3><p>Proyecto solar · Instalación fotovoltaica</p><span class="gallery-line"></span></div>
+          </article>
+          <article class="gallery-slide" aria-label="Proyecto 3 de 7">
+            <img src="assets/galeria/proyecto-03-cartagena.webp" alt="Proyecto solar de BM Ingeniería en Cartagena" width="1800" height="1350" loading="lazy" decoding="async">
+            <div class="gallery-caption"><span class="gallery-index">03 / 07</span><h3>Cartagena</h3><p>Proyecto solar · Instalación fotovoltaica</p><span class="gallery-line"></span></div>
+          </article>
+          <article class="gallery-slide" aria-label="Proyecto 4 de 7">
+            <img src="assets/galeria/proyecto-04-monteria.webp" alt="Proyecto solar de BM Ingeniería en Montería" width="1800" height="1350" loading="lazy" decoding="async">
+            <div class="gallery-caption"><span class="gallery-index">04 / 07</span><h3>Montería</h3><p>Proyecto solar · Instalación fotovoltaica</p><span class="gallery-line"></span></div>
+          </article>
+          <article class="gallery-slide" aria-label="Proyecto 5 de 7">
+            <img src="assets/galeria/proyecto-05-puerto-colombia.webp" alt="Proyecto solar de BM Ingeniería en Puerto Colombia" width="1800" height="1350" loading="lazy" decoding="async">
+            <div class="gallery-caption"><span class="gallery-index">05 / 07</span><h3>Puerto Colombia</h3><p>Proyecto solar · Instalación fotovoltaica</p><span class="gallery-line"></span></div>
+          </article>
+          <article class="gallery-slide" aria-label="Proyecto 6 de 7">
+            <img src="assets/galeria/proyecto-06-arboletes.webp" alt="Proyecto solar de BM Ingeniería en Arboletes" width="1800" height="1350" loading="lazy" decoding="async">
+            <div class="gallery-caption"><span class="gallery-index">06 / 07</span><h3>Arboletes</h3><p>Proyecto solar · Instalación fotovoltaica</p><span class="gallery-line"></span></div>
+          </article>
+          <article class="gallery-slide" aria-label="Proyecto 7 de 7">
+            <img src="assets/galeria/proyecto-07-monteria.webp" alt="Segundo proyecto solar de BM Ingeniería en Montería" width="1800" height="1350" loading="lazy" decoding="async">
+            <div class="gallery-caption"><span class="gallery-index">07 / 07</span><h3>Montería</h3><p>Proyecto solar · Instalación fotovoltaica</p><span class="gallery-line"></span></div>
+          </article>
+        </div>
+        <button class="gallery-arrow gallery-prev" type="button" aria-label="Proyecto anterior">‹</button>
+        <button class="gallery-arrow gallery-next" type="button" aria-label="Proyecto siguiente">›</button>
+      </div>
+      <div class="gallery-toolbar">
+        <div class="gallery-count"><strong data-gallery-current>01</strong><span>/ 07</span></div>
+        <div class="gallery-progress" aria-hidden="true"><span></span></div>
+        <div class="gallery-autoplay"><i aria-hidden="true"></i>Recorrido automático</div>
+      </div>
+      <div class="gallery-thumbs" aria-label="Seleccionar proyecto">
+        <button class="gallery-thumb is-active" type="button" aria-label="Ver proyecto 1 en Barranquilla" aria-pressed="true"><img src="assets/galeria/proyecto-01-barranquilla.webp" alt="" width="1195" height="896" loading="lazy"></button>
+        <button class="gallery-thumb" type="button" aria-label="Ver proyecto 2 en Sincelejo" aria-pressed="false"><img src="assets/galeria/proyecto-02-sincelejo.webp" alt="" width="1800" height="1350" loading="lazy"></button>
+        <button class="gallery-thumb" type="button" aria-label="Ver proyecto 3 en Cartagena" aria-pressed="false"><img src="assets/galeria/proyecto-03-cartagena.webp" alt="" width="1800" height="1350" loading="lazy"></button>
+        <button class="gallery-thumb" type="button" aria-label="Ver proyecto 4 en Montería" aria-pressed="false"><img src="assets/galeria/proyecto-04-monteria.webp" alt="" width="1800" height="1350" loading="lazy"></button>
+        <button class="gallery-thumb" type="button" aria-label="Ver proyecto 5 en Puerto Colombia" aria-pressed="false"><img src="assets/galeria/proyecto-05-puerto-colombia.webp" alt="" width="1800" height="1350" loading="lazy"></button>
+        <button class="gallery-thumb" type="button" aria-label="Ver proyecto 6 en Arboletes" aria-pressed="false"><img src="assets/galeria/proyecto-06-arboletes.webp" alt="" width="1800" height="1350" loading="lazy"></button>
+        <button class="gallery-thumb" type="button" aria-label="Ver proyecto 7 en Montería" aria-pressed="false"><img src="assets/galeria/proyecto-07-monteria.webp" alt="" width="1800" height="1350" loading="lazy"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="clients" aria-labelledby="h-cli">
+  <div class="wrap">
+    <p class="eyebrow">09 / Confianza que nos conecta</p>
+    <h2 id="h-cli">Empresas y entidades que hacen parte de nuestra trayectoria.</h2>
+    <p class="lede" style="margin-top:16px">Una muestra de organizaciones, operadores, clientes y aliados vinculados a los proyectos y servicios de BM Ingeniería.</p>
+    <ul class="logo-wall logo-wall-expanded">
+      <li><img src="assets/clientes/cliente-01.webp" alt="CENS Grupo EPM" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-02.webp" alt="EBSA" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-03.webp" alt="ESSA Grupo EPM" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-04.webp" alt="EMCALI" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-05.webp" alt="Enel" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-06.webp" alt="Afinia Grupo EPM" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-07.webp" alt="Celsia" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-08.webp" alt="ElectroHuila" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-09.webp" alt="CHEC Grupo EPM" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-10.webp" alt="EPM" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-11.webp" alt="Air-e" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-12.webp" alt="EDEQ" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-13.webp" alt="ENERCA" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-14.webp" alt="Ruitoque Energía" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-15.webp" alt="EMSA" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-16.webp" alt="Estruccon Ingeniería Solar" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-17.webp" alt="Integra Energy" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-18.webp" alt="ICC" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-19.webp" alt="LuneSIA Soluciones Solares" loading="lazy" decoding="async"></li>
+      <li class="logo-card--dark"><img src="assets/clientes/cliente-20.webp" alt="SIER Group" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-21.webp" alt="CEC" loading="lazy" decoding="async"></li>
+      <li class="logo-card--dark"><img src="assets/clientes/cliente-22.webp" alt="MC&I Americas" loading="lazy" decoding="async"></li>
+      <li class="logo-card--dark"><img src="assets/clientes/cliente-23.webp" alt="PC Mejía Ingeniería" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-24.webp" alt="Solar Andina" loading="lazy" decoding="async"></li>
+      <li class="logo-card--dark"><img src="assets/clientes/cliente-25.webp" alt="Sunvolt" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-26.webp" alt="Terpel Sunex" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-27.webp" alt="Vortech" loading="lazy" decoding="async"></li>
+      <li><img src="assets/clientes/cliente-28.webp" alt="Coacosta" loading="lazy" decoding="async"></li>
+    </ul>
+    <div class="ally ally-featured" aria-label="Alianza estratégica con ELING LATAM Group">
+      <div class="ally-logo-panel">
+        <span class="ally-partner-badge"><i aria-hidden="true"></i> Partner estratégico</span>
+        <img src="assets/marca/eling-latam.webp" alt="ELING LATAM Servicios e Ingeniería Eléctrica" loading="lazy" decoding="async">
+        <span class="ally-signal ally-signal-a" aria-hidden="true"></span>
+        <span class="ally-signal ally-signal-b" aria-hidden="true"></span>
+      </div>
+      <div class="ally-copy">
+        <span class="ally-kicker">ALIANZA REGIONAL</span>
+        <h3>BM Ingeniería <span aria-hidden="true">×</span> ELING LATAM Group</h3>
+        <p>Una alianza que nos permite llevar estudios de conexión e ingeniería a más mercados de Latinoamérica.</p>
+        <div class="ally-tags" aria-label="Áreas de la alianza">
+          <span>Estudios de conexión</span>
+          <span>Ingeniería eléctrica</span>
+          <span>Latinoamérica</span>
+        </div>
+      </div>
+      <span class="ally-corner ally-corner-a" aria-hidden="true"></span>
+      <span class="ally-corner ally-corner-b" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+<section aria-label="Garantías" class="gear-sec">
+  <div class="wrap">
+    <div class="gear">
+      <div><h3>Equipos Tier 1</h3><p>Instalamos marcas de primer nivel, con módulos de 25 a 30 años de vida útil y 25 años de garantía.</p></div>
+      <div><h3>Cálculo preciso</h3><p>Cada diseño se simula con datos de radiación del sitio para sacar la mayor energía por metro cuadrado.</p></div>
+      <div><h3>Monitoreo en el celular</h3><p>Todos los sistemas incluyen una aplicación para ver en tiempo real cuánta energía producen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact" aria-labelledby="h-con">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">10 / Su próximo proyecto</p>
+      <h2 id="h-con">Hablemos de su proyecto.</h2>
+      <p class="lede" style="margin-top:18px">Complete el formulario y le escribimos por WhatsApp con los siguientes pasos. Respondemos en horario laboral el mismo día.</p>
+      <div class="offices">
+        <div class="office-card">
+          <span class="office-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></span>
+          <div><h3>Barranquilla</h3><p>Calle 40 # 13C-40</p></div>
+        </div>
+        <div class="office-card">
+          <span class="office-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></span>
+          <div><h3>Montería</h3><p>Carrera 15A BIS # 43A-18</p></div>
+        </div>
+        <div class="office-card office-card-wide">
+          <span class="office-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.3 3.8 5.7 5.1c-.8.4-1.2 1.3-.9 2.2 1.8 5.6 6.2 10 11.8 11.8.9.3 1.8-.1 2.2-.9l1.3-2.6-4-2-1.2 1.8a1.2 1.2 0 0 1-1.4.4 12.3 12.3 0 0 1-5.3-5.3 1.2 1.2 0 0 1 .4-1.4l1.8-1.2-2.1-4.1Z"/><path d="M14.5 5.4a5.4 5.4 0 0 1 4.1 4.1M14.7 2a8.7 8.7 0 0 1 7.3 7.3"/></svg></span>
+          <div><h3>Contacto directo</h3><p><a href="tel:+573002632450">+57 300 263 2450</a><br><a href="mailto:gerencia@bmingenieriasolar.com">gerencia@bmingenieriasolar.com</a></p></div>
+        </div>
+        <div class="office-card office-socials">
+          <span class="office-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4a13 13 0 0 1 0 16M12 4a13 13 0 0 0 0 16"/></svg></span>
+          <div><h3>Redes</h3><p class="social-links"><a href="https://www.instagram.com/bm_ingenieriasas" target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span></a><a href="https://www.tiktok.com/@bm_ingenieriasas" target="_blank" rel="noopener">TikTok <span aria-hidden="true">↗</span></a><a href="https://wa.me/573002632450" target="_blank" rel="noopener">WhatsApp <span aria-hidden="true">↗</span></a></p></div>
+        </div>
+      </div>
+    </div>
+    <form class="panel" id="form" novalidate>
+      <p class="form-title">Cuéntenos su idea. La conectamos.</p>
+      <div class="two">
+        <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" autocomplete="name" required></div>
+        <div class="field"><label for="f-ciudad">Ciudad</label><input id="f-ciudad" autocomplete="address-level2" required></div>
+      </div>
+      <div class="two">
+        <div class="field"><label for="f-tipo">Soy</label>
+          <select id="f-tipo"><option>Hogar</option><option>Comercio</option><option>Industria</option><option>Firma de ingeniería o EPC</option></select></div>
+        <div class="field"><label for="f-svc">Me interesa</label>
+          <select id="f-svc">
+            <option>Energía solar fotovoltaica</option><option>Estudios y trámites de conexión</option><option>Incentivos tributarios</option><option>Ingeniería de diseño y detalle</option><option>Automatización y control industrial</option><option>Obras eléctricas y mantenimiento</option><option>Revisión técnica de estudios</option>
+          </select></div>
+      </div>
+      <div class="field"><label for="f-msg">Cuéntenos del proyecto</label><textarea id="f-msg" rows="4" placeholder="Por ejemplo: consumo mensual, tipo de techo o potencia a conectar"></textarea></div>
+      <p class="hint" id="f-err" role="alert" style="color:#B3261E; margin:0 0 12px; display:none">Escriba su nombre y ciudad para continuar.</p>
+      <button class="btn btn-sol" type="submit">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+        Enviar por WhatsApp</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand"><img src="assets/marca/logo-bm-blanco.webp" alt="BM Ingeniería y Energía S.A.S" width="140" height="56"><span>© 2026 BM Ingeniería y Energía S.A.S.</span></div>
+    <nav aria-label="Pie de página"><a href="#servicios">Servicios</a><a href="#proyectos">Proyectos</a><a href="#galeria">Galería</a><a href="#contacto">Contacto</a></nav>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/573002632450" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+</a>
+
+<script>
+(function(){
+  // Diagrama unifilar interactivo
+  window.bmDiagramInfo = {
+    fv:{badge:"Ingeniería del sistema", h:"Diseño del generador fotovoltaico", p:"Dimensionamos el sistema según su consumo real, simulamos la producción y elegimos módulos Tier 1 y la estructura adecuada para su techo o terreno.", a:"#svc-solar", bullets:["Módulos y estructura adecuados","Producción estimada","Diseño listo para ejecutar"]},
+    inv:{badge:"Diseño y selección", h:"Ingeniería de detalle", p:"Seleccionamos inversores, calculamos cadenas, conductores y protecciones DC/AC, y entregamos planos y memorias listos para construir.", a:"#svc-ingenieria", bullets:["Selección del inversor","Cálculo de cadenas y calibres","Planos y memorias"]},
+    prot:{badge:"Operación segura", h:"Protecciones, tableros y control", p:"Coordinamos protecciones, armamos tableros y automatizamos transferencias e interruptores motorizados para operar sin sorpresas.", a:"#svc-auto", bullets:["Coordinación de protecciones","Tableros y automatización","Control confiable"]},
+    med:{badge:"Legalización y ahorro", h:"Medida y beneficios", p:"Gestionamos el medidor bidireccional, el registro como autogenerador y el certificado UPME para acceder a los incentivos de la Ley 1715.", a:"#svc-incentivos", bullets:["Medidor bidireccional","Registro y certificados","Beneficios tributarios"]},
+    red:{badge:"Aprobación del proyecto", h:"Estudios de conexión", p:"Elaboramos el ECS o el EACP, verificamos los ajustes de protección que exige el CNO y llevamos el trámite hasta la aprobación del operador de red.", a:"#svc-conexion", bullets:["ECS o EACP","Ajustes exigidos por CNO","Trámite hasta aprobación"]}
+  };
+  // Service deep links are handled by services.js.
+
+  // Calculadora
+  var fmt = new Intl.NumberFormat('es-CO');
+  var money = new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0});
+  var kwh = document.getElementById('kwh'), tarifa = document.getElementById('tarifa');
+  function calc(){
+    var c = +kwh.value, t = Math.max(0, +tarifa.value || 0);
+    var kwp = c / (5.2 * 30 * 0.8);
+    var pan = Math.ceil(kwp * 1000 / 650);
+    document.getElementById('kwh-out').textContent = fmt.format(c) + ' kWh';
+    document.getElementById('r-kwp').textContent = kwp.toLocaleString('es-CO',{maximumFractionDigits:1}) + ' kWp';
+    document.getElementById('r-pan').textContent = fmt.format(pan);
+    document.getElementById('r-area').textContent = fmt.format(Math.round(pan * 3)) + ' m²';
+    document.getElementById('r-ahorro').textContent = money.format(c * t);
+    document.getElementById('r-anual').textContent = money.format(c * t * 12);
+  }
+  kwh.addEventListener('input', calc); tarifa.addEventListener('input', calc); calc();
+
+  // Llevar el servicio elegido al formulario
+  var svcSel = document.getElementById('f-svc');
+  document.querySelectorAll('[data-svc]').forEach(function(a){
+    a.addEventListener('click', function(){ svcSel.value = a.dataset.svc; });
+  });
+  document.getElementById('calc-cta').addEventListener('click', function(){
+    svcSel.value = 'Energía solar fotovoltaica';
+    var m = document.getElementById('f-msg');
+    if(!m.value) m.value = 'Mi consumo es de ' + fmt.format(+kwh.value) + ' kWh al mes.';
+  });
+
+  // Formulario a WhatsApp
+  document.getElementById('form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var n = document.getElementById('f-nombre').value.trim();
+    var c = document.getElementById('f-ciudad').value.trim();
+    var err = document.getElementById('f-err');
+    if(!n || !c){ err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    var txt = 'Hola BM Ingeniería, soy ' + n + ' (' + c + '). ' +
+      'Tipo de cliente: ' + document.getElementById('f-tipo').value + '. ' +
+      'Me interesa: ' + svcSel.value + '. ' + document.getElementById('f-msg').value.trim();
+    var url = 'https://wa.me/573002632450?text=' + encodeURIComponent(txt);
+    var w = window.open(url, '_blank', 'noopener');
+    if(!w) location.href = url;
+  });
+})();
+</script>
+<script src="premium.js"></script>
+<script src="services.js"></script>
+<script src="motion.js"></script>
+<script src="segments.js"></script>
+<script src="about-motion.js"></script>
+<script src="diagram.js"></script>
+<script src="polish.js"></script>
+<script src="smart-energy.js"></script>
+<script src="gallery.js"></script>
+<script src="flow-polish.js"></script>
+</body>
+</html>
+

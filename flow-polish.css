@@ -1,0 +1,53 @@
+/* V10: ritmo de scroll más limpio y transiciones suaves */
+html{scroll-padding-top:82px}
+body{overflow-x:hidden;scrollbar-gutter:stable}
+main{overflow-x:clip}
+section{scroll-margin-top:82px}
+
+/* Entradas menos bruscas: todo sube suavemente, sin barridos laterales agresivos. */
+.reveal-pending{
+  opacity:0;
+  translate:0 14px!important;
+  scale:1!important;
+  transition:
+    opacity .52s ease var(--reveal-delay,0ms),
+    translate .58s cubic-bezier(.22,.72,.2,1) var(--reveal-delay,0ms),
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background-color .22s ease!important;
+}
+.reveal-pending[data-reveal=left],
+.reveal-pending[data-reveal=right]{translate:0 14px!important}
+.reveal-pending[data-reveal=zoom]{translate:0 10px!important;scale:.995!important}
+.reveal-pending.is-visible,.reveal-pending:focus-within{opacity:1;translate:0 0!important;scale:1!important}
+
+/* El primer pantallazo aparece estable desde el inicio. */
+.hero-grid>div:first-child,.hero-visual{opacity:1!important;translate:0 0!important;scale:1!important}
+
+/* Menú más estable al desplazarse. */
+.top{backdrop-filter:saturate(115%) blur(0);transition:background-color .25s ease,box-shadow .25s ease,backdrop-filter .25s ease}
+.top.is-scrolled{background:rgba(5,76,74,.94);backdrop-filter:saturate(120%) blur(12px);box-shadow:0 8px 28px rgba(0,35,34,.12)}
+
+/* Menos hueco entre Proceso y Energía inteligente. */
+#proceso{padding:clamp(64px,6.7vw,88px) 0 clamp(66px,6.8vw,90px)!important}
+#proceso .steps{margin-top:44px!important}
+#proceso .steps li{min-height:150px!important}
+.smart-energy{padding:clamp(76px,7.2vw,104px) 0!important}
+
+/* Transiciones de secciones más pulidas. */
+#proceso,.smart-energy,.gallery-section,.clients,.contact{background-attachment:scroll}
+.gallery-section,.clients,.contact{contain:paint}
+
+@media(max-width:900px){
+  html{scroll-padding-top:72px}
+  section{scroll-margin-top:72px}
+  #proceso{padding:60px 0 66px!important}
+  #proceso .steps{margin-top:38px!important}
+  #proceso .steps li{min-height:128px!important}
+  .smart-energy{padding:66px 0 74px!important}
+  .reveal-pending{translate:0 10px!important;transition-duration:.48s!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal-pending{opacity:1!important;translate:none!important;scale:1!important;transition:none!important}
+}
